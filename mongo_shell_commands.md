@@ -73,11 +73,16 @@ autre méthod, la méthode pretty() :
 
 ## CRUD Operation
 ### Create
+##### Insérer une donnée
+`insertOne(data, options)`
 
 ### Read
 
 ### Update
+
 ##### Mettre à jour _**UN**_ unique élement
+`updateOne(filter, data, options)`
+
 ```markdown
 > db.collection_name.updateOne({foo: bar}, {$set: {a: "b"}})
 ```
@@ -88,7 +93,10 @@ pour préciser à MongoDB que nous souhaitons mettre à jour la propriété "a" 
 > À savoir que : si la propriété "a" ne venait à ne pas exister, MongoDB se permet de la rajouter
 à notre élément.
  
+ 
 ##### Mettre à jour plusieurs éléments
+`updateMany(filter, data, options)`
+
 ```markdown
 > db.collection_name.updateMany({}, {$set: {a: "b"}})
 ```
@@ -96,14 +104,21 @@ pour préciser à MongoDB que nous souhaitons mettre à jour la propriété "a" 
 données seront donc mises à jour.
 
 ##### Remplacer un élément
+`replaceOne(filter, data, options)`
+
 ### Delete
-##### deleteOne()
+##### Supprimer un élément
+`deleteOne(filter, options)`
+
 ```markdown
 > db.collection_name.deleteOne({foo: bar})
 ```
 > Ici, notre filter itérera sur le premier élément dont la propriété foo sera égale à la valeur
 bar.
-##### deleteMany()
+
+##### Supprimer plusieurs éléments
+`deleteMany(filter, options)`
+
 Supprimer tous les éléments dont la propriété foo est égale à la valeur bar :
 ```markdown
 > db.collection_name.deleteMany({foo: bar})
