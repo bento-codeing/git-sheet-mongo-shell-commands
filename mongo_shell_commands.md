@@ -1,6 +1,6 @@
 # Mongo Shell Commands
 
-Cette "git sheet" regroupe toutes les commandes de bases utilisées dans le shell de MongoDB.
+Cette "cheat sheet" regroupe toutes les commandes de bases utilisées dans le shell de MongoDB.
 
 ### Nettoyer le terminal Mongo
 Pour nettoyer le terminal Mongo, nous utiliserons la commande suivante :
