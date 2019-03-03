@@ -2,7 +2,7 @@
 
 Cette "cheat sheet" regroupe toutes les commandes de bases utilisées dans le shell de MongoDB.
 
-
+## # _Les bases_
 
 ### Nettoyer le terminal Mongo
 Pour nettoyer le terminal Mongo, nous utiliserons la commande suivante :
@@ -67,16 +67,53 @@ Pour lister toutes les données présentes dans une collection, nous utiliserons
 autre méthod, la méthode pretty() : 
 
 > > db.collection_name.find().pretty()
-#
 
 
 
-## CRUD Operation
+
+## # _Opérations CRUD_
 ### Create
 ##### Insérer une donnée
 `insertOne(data, options)`
 
+```markdown
+> db.collection_name.insertOne({foo: bar})
+```
+
+##### Insérer plusieurs données
+`insertMany(data, options)`
+
+```markdown
+> db.collection_name.insertMany([
+{foo1: bar1}, 
+{foo2: bar2}
+])
+```
+
+> Cette méthode requiert un tableau en tant que paramètre `data`
+
+
+
+
 ### Read
+##### Trouver une donnée
+`findOne(filter, options)`
+
+```markdown
+> db.collection_name.findOne({foo: bar})
+```
+> Ici, notre filter itérera sur le premier élément dont la propriété foo sera égale à la valeur
+bar.
+
+##### Trouver plusieurs données
+`find(filter, options)`
+
+```markdown
+> db.collection_name.findOne({foo: bar})
+```
+> Ici, notre filter itérera sur le premier élément dont la propriété foo sera égale à la valeur
+bar.
+
 
 ### Update
 
@@ -106,6 +143,9 @@ données seront donc mises à jour.
 ##### Remplacer un élément
 `replaceOne(filter, data, options)`
 
+
+
+
 ### Delete
 ##### Supprimer un élément
 `deleteOne(filter, options)`
@@ -127,3 +167,15 @@ Supprimer tous les éléments :
 ```markdown
 > db.collection_name.deleteMany({})
 ```
+
+
+
+#
+## # _Opérateurs_
+#### Sélecteurs de requêtage (ou Query selectors)
+
+##### Comparaison 
+- `$gt` (greater than) : matches les valeurs plus grande que la valeur de base spécifiée
+    ```
+    db.collection_name.find({ age: {$gt: 18} })
+    ``` 
